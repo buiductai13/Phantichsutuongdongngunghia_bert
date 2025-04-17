@@ -26,3 +26,7 @@ Dự án nhằm xây dựng một hệ thống thông minh có khả năng hiể
 
 - Ứng dụng vào các hệ thống giáo dục, công cụ phát hiện đạo văn, và tìm kiếm văn bản thông minh.
 
+# 📬 Liên Hệ
+📧 Email: buiductaicnnt@gmail.com
+📍HCM
+📘 GitHub: buiductai13
