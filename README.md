@@ -17,3 +17,12 @@ Dự án nhằm xây dựng một hệ thống thông minh có khả năng hiể
 + Tóm tắt văn bản theo ý nghĩa.
 
  Mục tiêu không chỉ là tạo ra một mô hình chính xác, mà còn là một công cụ trực quan, dễ sử dụng, có khả năng hiểu sâu tiếng Việt, hướng tới các ứng dụng thực tiễn trong giáo dục, truyền thông và công nghệ thông minh.
+
+# 🔮 Hướng Phát Triển Tương Lai
+
+- Mở rộng khả năng tóm tắt văn bản tiếng Việt.
+
+- Tích hợp mô hình vào API Flask hoặc RESTful API.
+
+- Ứng dụng vào các hệ thống giáo dục, công cụ phát hiện đạo văn, và tìm kiếm văn bản thông minh.
+
