@@ -26,6 +26,106 @@ Dự án nhằm xây dựng một hệ thống thông minh có khả năng hiể
 
 - Ứng dụng vào các hệ thống giáo dục, công cụ phát hiện đạo văn, và tìm kiếm văn bản thông minh.
 
+# Phân Tích Tương Đồng Ngữ Nghĩa Tiếng Việt sử dụng PhoBERT
+
+Dự án này là một ứng dụng web được xây dựng bằng Streamlit để phân tích và tính toán độ tương đồng về mặt ngữ nghĩa giữa các câu hoặc đoạn văn bản tiếng Việt. Ứng dụng sử dụng mô hình `PhoBERT` đã được tinh chỉnh (fine-tuned) cho tác vụ hồi quy tương đồng câu (Sentence Similarity Regression).
+
+## ✨ Chức năng chính
+
+- **So sánh độ tương đồng câu**: Người dùng có thể nhập hai hoặc nhiều câu để nhận điểm tương đồng trên thang điểm từ 0 đến 5.
+- **Phát hiện sao chép/đạo văn**: So sánh hai đoạn văn bản để đánh giá mức độ tương đồng, hữu ích cho việc phát hiện nội dung sao chép.
+- **Tóm tắt văn bản**: Cung cấp một bản tóm tắt ngắn gọn cho một đoạn văn bản dài dựa trên thuật toán trích xuất (extractive summarization) bằng cách xác định các câu quan trọng nhất.
+
+
+## 📂 Cấu trúc thư mục
+
+```
+phantichsutuongdongngunghia_bert/
+│
+├── data/
+│   └── (Chứa dữ liệu huấn luyện, ví dụ: processed_data_vn.csv)
+│
+├── model/
+│   ├── modelphobert_similarity_model_2/
+│   │   └── (Chứa các file của mô hình đã được tinh chỉnh)
+│   └── phobert_similarity_model/
+│       └── (Một phiên bản khác của mô hình)
+│
+├── src/
+│   ├── vn_app.py                   # Entry point chính của ứng dụng Streamlit
+│   ├── app.py                      # Một phiên bản khác của ứng dụng
+│   └── semantic_similarity_analysis.py # Phiên bản ứng dụng với tính năng visualization
+│
+├── train/
+│   └── BERT_VN.ipynb               # Jupyter Notebook cho việc huấn luyện mô hình
+│
+└── README.md                       # File này
+```
+
+## 🚀 Cài đặt và Chạy dự án
+
+### 1. Yêu cầu hệ thống
+
+- Python 3.8+
+- Git
+
+### 2. Cài đặt
+
+1.  **Clone repository về máy:**
+    ```bash
+    git clone <URL_CUA_REPOSITORY>
+    cd phantichsutuongdongngunghia_bert
+    ```
+
+2.  **Tạo và kích hoạt môi trường ảo (khuyến nghị):**
+    ```bash
+    python -m venv .venv
+    # Trên Windows
+    .venv\Scripts\activate
+    # Trên macOS/Linux
+    source .venv/bin/activate
+    ```
+
+3.  **Cài đặt các thư viện cần thiết:**
+    Tạo một file `requirements.txt` với nội dung sau:
+    ```txt
+    streamlit
+    torch
+    transformers
+    scikit-learn
+    pandas
+    numpy
+    plotly
+    seaborn
+    pyarrow
+    ```
+    Sau đó chạy lệnh:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+### 3. Tải mô hình
+
+Đảm bảo rằng thư mục `model/modelphobert_similarity_model_2` chứa đầy đủ các file của mô hình đã được fine-tuned từ notebook huấn luyện. Nếu chưa có, bạn cần chạy notebook `train/BERT_VN.ipynb` để huấn luyện và lưu lại mô hình.
+
+### 4. Chạy ứng dụng
+
+Sau khi cài đặt xong, chạy ứng dụng Streamlit bằng lệnh sau:
+
+```bash
+streamlit run src/vn_app.py
+```
+
+Ứng dụng sẽ được mở trên trình duyệt của bạn.
+
+## 🏋️‍♀️ Huấn luyện mô hình
+
+Toàn bộ quy trình huấn luyện được mô tả trong file `train/BERT_VN.ipynb`. Về cơ bản, quy trình bao gồm:
+1.  **Tải dữ liệu**: Sử dụng bộ dữ liệu Vietnamese STS Benchmark.
+2.  **Mô hình cơ sở**: `vinai/phobert-base`.
+3.  **Tinh chỉnh**: Tinh chỉnh mô hình cho tác vụ hồi quy (regression) để dự đoán điểm tương đồng giữa hai câu.
+4.  **Lưu mô hình**: Mô hình sau khi huấn luyện được lưu lại để ứng dụng có thể sử dụng. 
+
 # 📬 Liên Hệ
 📧 Email: buiductaicnnt@gmail.com
 📍HCM
